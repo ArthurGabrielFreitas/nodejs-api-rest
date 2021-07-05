@@ -6,12 +6,12 @@ class Tabelas{
     }
 
     cirarAtendimentos() {
-        const sql = 'CREATE TABLE Atendimentos (id int NOT NULL AUTO_INCREMENT, cliente varchar(50) NOT NULL, pet varchar(20), servico varchar(20) NOT NULL, status varchar(20) NOT NULL, observacoes text, PRIMARY KEY(id))'
+        const sql = 'CREATE TABLE  IF NOT EXISTS Atendimentos (id int NOT NULL AUTO_INCREMENT, cliente varchar(50) NOT NULL, pet varchar(20), servico varchar(20) NOT NULL, dataAtendimento datetime NOT NULL, dataCriacao datetime NOT NULL, status varchar(20) NOT NULL, observacoes text, PRIMARY KEY(id))'
         this.conexao.query(sql, (erro) =>{
             if(erro){
                 console.log(erro)
             } else{
-                console.log('Tabela criada corretamente')
+                console.log('Tabela Atendimentos criada corretamente')
             }
         })
     }
